@@ -58,6 +58,9 @@
 ## font-name is only for freetype/pango. For psf, it's the path of the psf or psf.gz file. Unifont and 8x16 uses their own bitmap.
 #font-name=Hack Nerd Font
 
+## Empty space in pixels between the text and the screen edges
+#padding=16
+
 ### Input Options ###
 ## Keyboard
 #xkb-model=pc102

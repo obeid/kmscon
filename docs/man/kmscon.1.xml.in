@@ -674,6 +674,14 @@
                 (default: monospace)</para>
         </listitem>
       </varlistentry>
+
+      <varlistentry>
+        <term><option>--padding {pixels}</option></term>
+        <listitem>
+          <para>Empty space, in pixels, kept between the text and every edge of the
+                screen. It is filled with the background color. (default: 0)</para>
+        </listitem>
+      </varlistentry>
     </variablelist>
 
     <para>Palette Options:</para>

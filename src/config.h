@@ -203,6 +203,8 @@ struct kmscon_conf_t {
 	unsigned int font_size;
 	/* font name */
 	char *font_name;
+	/* padding around the text area, in pixels */
+	unsigned int padding;
 
 	/* Palette Options */
 	/* color palette */

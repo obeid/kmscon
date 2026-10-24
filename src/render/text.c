@@ -296,14 +296,42 @@ void kmscon_text_resize(struct kmscon_text *txt, unsigned int cols, unsigned int
 		txt->ops->resize(txt, cols, rows);
 }
 
+/**
+ * kmscon_text_set_padding:
+ * @txt: valid text renderer
+ * @padding: padding in pixels
+ *
+ * Reserve @padding pixels of empty space on every side of the screen. The
+ * usable text area returned by kmscon_text_get_width/height() and thus the
+ * number of columns/rows shrink accordingly. The backends center the text
+ * grid, so the padding ends up evenly distributed around the edges.
+ * Call this before kmscon_text_set().
+ */
+void kmscon_text_set_padding(struct kmscon_text *txt, unsigned int padding)
+{
+	if (!txt)
+		return;
+	txt->padding = padding;
+}
+
+static unsigned int apply_padding(struct kmscon_text *txt, unsigned int size)
+{
+	unsigned int pad = 2 * txt->padding;
+
+	/* Never let padding eat the whole screen */
+	if (pad >= size)
+		return size;
+	return size - pad;
+}
+
 unsigned int kmscon_text_get_width(struct kmscon_text *txt)
 {
 	if (!txt)
 		return 0;
 	if (txt->orientation == OR_NORMAL || txt->orientation == OR_UPSIDE_DOWN)
-		return display_get_width(txt->disp);
+		return apply_padding(txt, display_get_width(txt->disp));
 	else
-		return display_get_height(txt->disp);
+		return apply_padding(txt, display_get_height(txt->disp));
 }
 
 unsigned int kmscon_text_get_height(struct kmscon_text *txt)
@@ -311,9 +339,9 @@ unsigned int kmscon_text_get_height(struct kmscon_text *txt)
 	if (!txt)
 		return 0;
 	if (txt->orientation == OR_NORMAL || txt->orientation == OR_UPSIDE_DOWN)
-		return display_get_height(txt->disp);
+		return apply_padding(txt, display_get_height(txt->disp));
 	else
-		return display_get_width(txt->disp);
+		return apply_padding(txt, display_get_width(txt->disp));
 }
 
 unsigned int kmscon_text_get_cols(struct kmscon_text *txt, unsigned int font_width)

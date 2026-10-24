@@ -67,6 +67,7 @@ struct kmscon_text {
 	bool rendering;
 	enum Orientation orientation;
 	bool blinking;
+	unsigned int padding;
 };
 
 struct kmscon_cursor {
@@ -107,6 +108,7 @@ void kmscon_text_unref(struct kmscon_text *txt);
 int kmscon_text_set(struct kmscon_text *txt, struct kmscon_font *font);
 void kmscon_text_unset(struct kmscon_text *txt);
 
+void kmscon_text_set_padding(struct kmscon_text *txt, unsigned int padding);
 unsigned int kmscon_text_get_width(struct kmscon_text *txt);
 unsigned int kmscon_text_get_height(struct kmscon_text *txt);
 unsigned int kmscon_text_get_cols(struct kmscon_text *txt, unsigned int font_width);

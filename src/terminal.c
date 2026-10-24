@@ -864,6 +864,7 @@ int terminal_add_display(struct kmscon_terminal *term, struct display *disp)
 		log_error("cannot create text-renderer");
 		goto err_cb;
 	}
+	kmscon_text_set_padding(scr->txt, term->conf->padding);
 
 	dlist_link(&term->screens, &scr->list);
 

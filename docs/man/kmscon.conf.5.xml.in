@@ -547,6 +547,14 @@ font-name=Ubuntu Mono
         </listitem>
       </varlistentry>
 
+      <varlistentry>
+        <term><option>padding</option></term>
+        <listitem>
+          <para>Empty space, in pixels, kept between the text and every edge of the
+                screen. It is filled with the background color. (default: 0)</para>
+        </listitem>
+      </varlistentry>
+
     </variablelist>
   </refsect1>
 
