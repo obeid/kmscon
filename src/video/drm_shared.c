@@ -46,6 +46,11 @@
 #include "video.h"
 #include "video_internal.h"
 
+/* Missing from older libdrm headers (e.g. Debian 12); value from the kernel UAPI */
+#ifndef DRM_CLIENT_CAP_CURSOR_PLANE_HOTSPOT
+#define DRM_CLIENT_CAP_CURSOR_PLANE_HOTSPOT 6
+#endif
+
 #define LOG_SUBSYSTEM "drm_shared"
 
 #define MAX_VT_TIMEOUT_RETRIES 20
