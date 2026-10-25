@@ -1,0 +1,39 @@
+## Amber monochrome monitor look (think IBM 5151 / old terminals).
+## Copy to /etc/kmscon/kmscon.conf, or append to your existing one.
+##
+## Every color is a shade of amber on a near-black background, so colored
+## output (ls, git, prompts) shows up as brighter or dimmer amber instead
+## of hues, just like a real monochrome tube.
+
+### Look
+padding=16
+font-size=18
+font-name=Terminus
+blink
+
+### Palette
+palette=custom
+
+## Background and default text
+palette-background=12,8,0
+palette-foreground=255,176,0
+
+## "Dark" colors: dim amber
+palette-black=12,8,0
+palette-red=170,110,0
+palette-green=190,125,0
+palette-yellow=210,140,0
+palette-blue=140,90,0
+palette-magenta=160,100,0
+palette-cyan=180,118,0
+palette-light-grey=225,155,0
+
+## "Bright" colors: hot amber, brightest is almost white-yellow
+palette-dark-grey=100,65,0
+palette-light-red=255,160,20
+palette-light-green=255,180,40
+palette-light-yellow=255,200,70
+palette-light-blue=230,150,10
+palette-light-magenta=245,165,30
+palette-light-cyan=255,190,55
+palette-white=255,215,120
