@@ -1,5 +1,7 @@
 ## Amber monochrome monitor look (think IBM 5151 / old terminals).
-## Copy to /etc/kmscon/kmscon.conf, or append to your existing one.
+## Copy to the config dir your build uses: /usr/local/etc/kmscon/kmscon.conf
+## for the default /usr/local prefix (/etc/kmscon/kmscon.conf for --prefix=/usr).
+## Check with: kmscon --help | grep configdir
 ##
 ## Every color is a shade of amber on a near-black background, so colored
 ## output (ls, git, prompts) shows up as brighter or dimmer amber instead
@@ -7,8 +9,11 @@
 
 ### Look
 padding=16
-font-size=18
-font-name=Terminus
+## Bitmap Terminus from Debian's console-setup package. Works without the
+## freetype engine (which needs fontconfig >= 2.16, newer than Debian 12 has).
+## Other sizes: ls /usr/share/consolefonts | grep Terminus
+font-engine=psf
+font-name=/usr/share/consolefonts/Uni2-Terminus16.psf.gz
 blink
 
 ### Palette
